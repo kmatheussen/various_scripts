@@ -3,11 +3,13 @@
 # 1. run crontab -e
 # 2. Add something like this: "*/1 * * * * /home/kjetil/bin/warn_low_battery.sh"
 
+
 #export XAUTHORITY=/home/kjetil/.Xauthority
 
 #test
 #xmessage -center -display :0.0 "Low battery. 11%."
 
+if acpi |grep Discharging ; then
 if acpi |grep 10% ; then
     xmessage -center -display :0.0 "Low battery. 10%." &
 fi
@@ -33,8 +35,10 @@ if acpi |grep \ 3% ; then
     xmessage -center -display :0.0 "Low battery. 3%." &
 fi
 if acpi |grep \ 2% ; then
-    xmessage -center -display :0.0 "Low battery. 2%." &
+    xmessage -center -display :0.0 "Low battery. 2%. Shutting down." &
+    pm-hibernate
 fi
 if acpi |grep \ 1% ; then
     xmessage -center -display :0.0 "Low battery. 1%." &
+fi
 fi
