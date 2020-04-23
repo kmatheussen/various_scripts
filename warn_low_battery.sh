@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# 1. run crontab -e
+# 2. Add something like this: "*/1 * * * * /home/kjetil/bin/warn_low_battery.sh"
+
 #export XAUTHORITY=/home/kjetil/.Xauthority
 
 #test
