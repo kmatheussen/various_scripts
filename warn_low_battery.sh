@@ -10,7 +10,7 @@
 #xmessage -center -display :0.0 "Low battery. 11%."
 
 if acpi |grep Discharging ; then
-if acpi |grep 10% ; then
+if acpi |grep 20% ; then
     xmessage -center -display :0.0 "Low battery. 20%." &
 fi
 if acpi |grep 19% ; then
